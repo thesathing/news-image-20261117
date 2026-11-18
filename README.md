@@ -4,7 +4,7 @@
 [![rank](https://make.fun/badge/news-image-20261117/thesathing/news-image-20261117/rank.svg)](https://make.fun/bounty/news-image-20261117/leaderboard)
 [![reward](https://make.fun/badge/news-image-20261117/thesathing/news-image-20261117/reward.svg)](https://make.fun/bounty/news-image-20261117)
 
-**THE WORLD TODAY — Tuesday 17 November 2026 in one image.** A newspaper front page for the day's world news: the Kerch Bridge fallen into the sea leads, with the Gulf tanker crisis, Trump's Asia trip and the Gaza aid plea below, and the rest of the day in the ticker.
+**THE WORLD TODAY — Tuesday 17 November 2026 in one image.** A newspaper front page for the day's world news: 43 stories across 6 continents — three lead diagrams (the Kerch Bridge, the Gulf, the Quad summit in Manila), ten illustrated story cards, a world map with numbered pins, and a numbered also-list, with every contested claim attributed and the sources named.
 
 ## Run it
 
@@ -16,7 +16,7 @@ mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 
 ## The image
 
-Built with `build_poster.py` (Pillow): a generated dusk photograph of the collapsed bridge span, with every headline and deck drawn as crisp text so the page stays legible at full size. Stories were checked against the day's reporting: the Kerch Bridge strike, tankers burning near Hormuz and drones targeting a US base in Bahrain, the Quad summit in Manila ahead of the Xi–Trump–Putin meeting in Shenzhen, and the Western call for Israel to open Gaza.
+Built with `build_poster2.py` (Pillow): every panel, card illustration and the world map is drawn in code as flat diagrams, with every headline and deck drawn as crisp text so the page stays legible at full size. Stories were checked against the day's reporting: the Kerch Bridge strike, drones targeting a US base in Bahrain and the US strike on Qeshm, the Quad summit in Manila ahead of the Xi–Trump–Putin meeting in Shenzhen, the Ebola outbreak in DR Congo, COP31 in Antalya, the measles-free status loss, Nvidia's quarter, and the Gaza aid plea.
 
 ---
 
