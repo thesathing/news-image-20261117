@@ -1,8 +1,9 @@
 // news-image-20261117: "THE WORLD TODAY" — Tuesday 17 November 2026 in one image.
 //
-// The entry is a front page drawn for the day's news: the Kerch Bridge
-// fallen into the sea leads, with the Gulf tanker crisis, Trump's Asia
-// trip and the Gaza aid plea below, and the rest of the day in a ticker.
+// The entry is a front page drawn for the day's news: 43 stories across
+// 6 continents — three lead diagrams (the Kerch Bridge, the Gulf, the Quad
+// summit in Manila), ten illustrated story cards, a world map with
+// numbered pins, and a numbered also-list of the rest of the day.
 // main.ts copies the finished page (entry.png, beside this file) to
 // /output/entry.png, verifying it first so a corrupt or oversized file
 // can never reach the judge. Node 22, standard library only, no network.
