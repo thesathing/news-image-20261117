@@ -34,6 +34,20 @@ function pngDimensions(bytes: Buffer): { width: number; height: number } {
   return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
 }
 
+// A PNG is only whole when it ends with its IEND trailer: a length of 0,
+// the letters IEND, and the fixed CRC AE426082. Without this check a file
+// cut short mid-write would still pass the header checks above.
+const IEND_TRAILER = Buffer.from([
+  0x00, 0x00, 0x00, 0x00, 0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82,
+]);
+
+function pngIsComplete(bytes: Buffer): boolean {
+  return (
+    bytes.length >= IEND_TRAILER.length &&
+    bytes.subarray(bytes.length - IEND_TRAILER.length).equals(IEND_TRAILER)
+  );
+}
+
 const here = fileURLToPath(new URL('.', import.meta.url));
 const sourcePath = join(here, 'entry.png');
 const source = readFileSync(sourcePath);
@@ -45,6 +59,9 @@ if (stat.size > MAX_BYTES) {
 const { width, height } = pngDimensions(source);
 if (width !== EXPECTED_WIDTH || height !== EXPECTED_HEIGHT) {
   fail(`entry.png is ${width}x${height}, expected ${EXPECTED_WIDTH}x${EXPECTED_HEIGHT}`);
+}
+if (!pngIsComplete(source)) {
+  fail('entry.png is truncated: missing IEND trailer');
 }
 
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
